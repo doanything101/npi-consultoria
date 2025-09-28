@@ -10,6 +10,9 @@ import { getCorretores } from "../services";
 import ModalDelete from "../components/modal-delete";
 import { TrashIcon } from "lucide-react";
 
+// Force dynamic rendering to prevent build-time Firebase initialization
+export const dynamic = 'force-dynamic';
+
 export default function AdminCorretores() {
   const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);

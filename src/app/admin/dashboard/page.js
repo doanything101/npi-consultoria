@@ -7,7 +7,7 @@ import { getUsuarios } from "../services/usuarios";
 import { getDashboard } from "../services/dashboard";
 import { formatterNumber } from "@/app/utils/formatter-number";
 
-// Disable static generation for admin pages
+// Force dynamic rendering to prevent build-time Firebase initialization
 export const dynamic = 'force-dynamic';
 
 export default async function AdminDashboard() {

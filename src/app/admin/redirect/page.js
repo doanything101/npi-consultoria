@@ -3,6 +3,9 @@ import AuthCheck from "../components/auth-check";
 import { useEffect, useState } from "react";
 import { deleteRedirect } from "../services/redirects";
 
+// Force dynamic rendering to prevent build-time Firebase initialization
+export const dynamic = 'force-dynamic';
+
 export default function RedirectPage() {
   const [redirects, setRedirects] = useState([]);
   const [source, setSource] = useState("");

@@ -7,6 +7,9 @@ import AuthCheck from "../components/auth-check";
 import { TrashIcon } from "lucide-react";
 import { Tab } from "@headlessui/react";
 
+// Force dynamic rendering to prevent build-time Firebase initialization
+export const dynamic = 'force-dynamic';
+
 export default function CondominiosDestacados() {
   const [imoveis, setImoveis] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

@@ -6,6 +6,9 @@ import { addUsuario, getUsuarios, updateDadosUsuario, deleteUsuario } from "../s
 import { FaEdit, FaTrash } from "react-icons/fa";
 import Modal from "../components/modal";
 
+// Force dynamic rendering to prevent build-time Firebase initialization
+export const dynamic = 'force-dynamic';
+
 export default function Configuracoes() {
   const [formData, setFormData] = useState({
     nome_site: "NPI Imóveis",

@@ -2,6 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { auth } from "@/app/lib/firebase";
+
+// Force dynamic rendering to prevent build-time Firebase initialization
+export const dynamic = 'force-dynamic';
 import {
   updateProfile,
   updateEmail,

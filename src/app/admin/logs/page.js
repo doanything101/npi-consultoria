@@ -6,6 +6,9 @@ import { buscarLogs } from "../services/log-service";
 import { PencilSquareIcon } from "@heroicons/react/24/outline";
 import { TrashIcon } from "lucide-react";
 
+// Force dynamic rendering to prevent build-time Firebase initialization
+export const dynamic = 'force-dynamic';
+
 export default function Logs() {
   const [logs, setLogs] = useState([]);
 

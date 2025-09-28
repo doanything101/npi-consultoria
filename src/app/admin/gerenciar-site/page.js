@@ -7,6 +7,9 @@ import HubTab from "./components/tabs/hub-tab";
 import SobreTab from "./components/tabs/sobre-tab";
 import ServicosTab from "./components/tabs/servicos-tab";
 
+// Force dynamic rendering to prevent build-time Firebase initialization
+export const dynamic = 'force-dynamic';
+
 export default function GerenciarSite() {
   const [tab, setTab] = useState("home");
   const [form, setForm] = useState({});

@@ -26,6 +26,12 @@ export default function AdminLayout({ children }) {
     // Marcar componente como montado para evitar problemas de hidratação
     setMounted(true);
 
+    // Verificar se o auth está disponível antes de usar
+    if (!auth) {
+      setIsAuthLoading(false);
+      return;
+    }
+
     // Verificar autenticação com Firebase
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {

@@ -8,6 +8,9 @@ import { StarIcon } from "@heroicons/react/24/solid";
 import { StarIcon as StarOutlineIcon } from "@heroicons/react/24/outline";
 import { PhotoIcon } from "@heroicons/react/24/outline";
 
+// Force dynamic rendering to prevent build-time Firebase initialization
+export const dynamic = 'force-dynamic';
+
 export default function ImoveisDestacados() {
   const [imoveis, setImoveis] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

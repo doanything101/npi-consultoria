@@ -12,6 +12,9 @@ import FiltersImoveisAdmin from "./components/filters";
 import { TrashIcon } from "lucide-react";
 import ModalDelete from "../components/modal-delete";
 
+// Force dynamic rendering to prevent build-time Firebase initialization
+export const dynamic = 'force-dynamic';
+
 // Função para calcular relevância do resultado
 const calculateRelevance = (imovel, searchTerm) => {
   if (!searchTerm || !imovel) return 0;

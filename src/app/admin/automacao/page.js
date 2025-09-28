@@ -8,6 +8,9 @@ import { MagnifyingGlassIcon, ArrowPathIcon, PencilSquareIcon } from "@heroicons
 import { getImoveisAutomacao } from "../services";
 import useImovelStore from "../store/imovelStore";
 import { TrashIcon } from "lucide-react";
+
+// Force dynamic rendering to prevent build-time Firebase initialization
+export const dynamic = 'force-dynamic';
 import ModalDelete from "../components/modal-delete";
 
 export default function AdminImoveis() {

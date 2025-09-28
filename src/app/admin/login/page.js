@@ -6,6 +6,9 @@ import Image from "next/image";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/app/lib/firebase";
 
+// Force dynamic rendering to prevent build-time Firebase initialization
+export const dynamic = 'force-dynamic';
+
 export default function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,6 +19,9 @@ export default function AdminLogin() {
   const router = useRouter();
 
   useEffect(() => {
+    // Verifica se o auth está disponível antes de usar
+    if (!auth) return;
+    
     // Se o usuário já está autenticado, redireciona para o dashboard
     if (auth.currentUser) {
       router.replace("/admin/dashboard");
@@ -39,6 +45,11 @@ export default function AdminLogin() {
     setSuccess("");
 
     try {
+      if (!auth) {
+        setError("Sistema de autenticação não disponível. Tente novamente.");
+        return;
+      }
+      
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       if (userCredential.user) {
         setSuccess("Login realizado com sucesso!");
